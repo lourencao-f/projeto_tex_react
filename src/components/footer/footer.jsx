@@ -11,9 +11,9 @@ export default function Footer() {
                     </p>
 
                     <div className="social">
-                        <a href="#"><img src="/assets/icons/instagram.png" className="icon-social" alt="Instagram" /></a>
-                        <a href="#"><img src="/assets/icons/linkedin.png" className="icon-social" alt="LinkedIn" /></a>
-                        <a href="#"><img src="/assets/icons/whatsapp.png" className="icon-social" alt="WhatsApp" /></a>
+                        <a href="#"><img src={import.meta.env.BASE_URL + '/assets/icons/instagram.png'} className="icon-social" alt="Instagram" /></a>
+                        <a href="#"><img src={import.meta.env.BASE_URL + 'assets/icons/linkedin.png'} className="icon-social" alt="LinkedIn" /></a>
+                        <a href="#"><img src={import.meta.env.BASE_URL + 'assets/icons/whatapp.png'} className="icon-social" alt="WhatsApp" /></a>
                     </div>
                 </div>
 
