@@ -674,3 +674,74 @@ header .logo-img {
         margin: 0 auto;
     }
 }
+
+/* ============================================================
+   ELARA BUILD — FOOTER (breakpoints 964 / 723 / 482)
+============================================================ */
+
+/* DESKTOP (>=965px) — 2 colunas */
+@media (min-width: 965px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* TABLET (964px → 723px) — 1 coluna */
+@media (max-width: 964px) and (min-width: 724px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+/* MOBILE (≤723px) — 1 coluna + padding */
+@media (max-width: 723px) {
+    footer#contato {
+        padding: 2.8rem 22px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+}
+
+/* MOBILE XS (≤482px) — tighter layout */
+@media (max-width: 482px) {
+    footer#contato {
+        padding: 2.5rem 16px;
+    }
+
+    .footer-grid {
+        gap: 1.6rem;
+    }
+}
+
+/* ============================
+   HEADER: ocultar em < 964px (Elara Build)
+   - Visível quando largura >= 964px
+   - Oculto quando largura < 964px
+   ============================ */
+
+/* Mantém visível em 964px e acima */
+@media (min-width: 964px) {
+    .header {
+        display: flex;
+        /* garantir visibilidade no desktop/tablet-large */
+        position: absolute;
+        /* ou o estilo que você já usa */
+        top: 0;
+        width: 100%;
+        z-index: 999;
+    }
+}
+
+/* Oculta abaixo de 964px (i.e. 963px e menores) */
+@media (max-width: 963px) {
+    .header {
+        display: none !important;
+        /* forçamos para evitar override */
+    }
+}
