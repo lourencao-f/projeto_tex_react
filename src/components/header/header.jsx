@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">TEX-Eng</div>
+        <div className="logo"></div>
 
         <nav className="nav-menu">
           <a href="#projetos-mecanicos">Projetos Mecânicos</a>
