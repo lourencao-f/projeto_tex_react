@@ -19,7 +19,8 @@
 /* ===== BODY ===== */
 body {
     font-family: 'Cinzel', serif;
-    background: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100%);
+    background: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100% 100%);
+    /* background: var(--cor-fundo); */
     color: var(--cor-texto);
     line-height: 1.6;
 }
@@ -27,75 +28,130 @@ body {
 /* ===== CONTAINER ===== */
 .container {
     width: 90%;
-    max-width: 75rem;
+    max-width: 75.0000rem;
     margin: 0 auto;
     line-height: 1;
 }
 
 /* ===== HEADER ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-
+/* HEADER FIXO E TRANSPARENTE, SEM SCROLL */
+/* HEADER RELATIVO AO HERO — NÃO SEGUE O SCROLL */
 .header {
-    top: 75px;
+    position: absolute;
+    top: 70px;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 999;
     height: 120px;
     display: flex;
     align-items: center;
+    /* centraliza verticalmente */
+    z-index: 999;
+    background: transparent;
+    padding: 0 40px;
+    /* <<< garante espaçamento lateral IGUAL à referência */
 }
 
+/* Container interno */
 .header-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 100%;
+    /* usa 120px inteiros do header */
 }
 
+/* Logo */
 .logo {
     font-family: "Cinzel", serif;
-    font-size: 48px;
+    font-size: 80px;
     font-weight: 400;
-    letter-spacing: 2px;
     color: #fff;
-    display: flex;
-    align-items: center;
+    letter-spacing: 2px;
+    padding-right: 30px;
 }
 
+/* NAV MENU */
 .nav-menu {
     display: flex;
     align-items: center;
+    gap: 30px;
+    /* mantém espaçamento entre itens */
 }
 
 .nav-menu a {
-    margin-left: 30px;
+    color: #fff;
     font-family: "Cinzel", serif;
     font-size: 15px;
-    font-weight: 600;
-    color: #fff;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none;
-    transition: 0.3s ease;
 }
 
+
 .nav-menu a:hover {
-    opacity: 0.6;
+    opacity: .6;
 }
+
+
+
 
 /* ===== HERO ===== */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../assets/img/hero.jpg') center/cover no-repeat;
+    padding-top: 120px;
+    /* altura EXATA do header */
     display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    color: var(--cor-branca);
+    color: #fff;
+
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+        url('/assets/img/hero.jpg') center/cover no-repeat;
+}
+
+
+.hero h2 {
+    padding-top: 12rem;
+    padding-bottom: 2.8125rem;
+    font-size: 6.7vw;
+    font-weight: 500;
+    /* font-size: 2.5rem; */
+    margin-bottom: 1rem;
+}
+
+.hero a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.3125rem;
+    margin: 0.3750rem;
+}
+
+#cta-btn {
+    background: var(--cor-branca);
+    color: var(--cor-primaria);
+    border: none;
+    padding: .9rem 3rem;
+    border-radius: 0.5000rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 4rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+
+}
+
+#cta-btn:hover {
+    background: var(--cor-cinza-claro);
 }
 
 /* ===== SECTIONS ===== */
@@ -122,13 +178,22 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    align-items: center;
+}
+
+.sobre-bloco img {
+    width: 100%;
+    border-radius: 0.7500rem;
+    box-shadow: 0 0.2500rem 0.7500rem rgba(0, 0, 0, 0.15);
 }
 
 .sobre-bloco .texto h4 {
-    font-size: 2.3rem;
+    /* font-size: 1.6rem; */
+    font-size: 2.3125rem;
     font-weight: normal;
     color: var(--cor-branca);
-    margin-bottom: 0.8rem;
+    /* color: var(--cor-primaria);*/
+    margin-bottom: .8rem;
 }
 
 .sobre-bloco .texto span {
@@ -137,33 +202,47 @@ section {
 }
 
 .sobre-bloco .texto p {
-    font-size: 0.875rem;
-    margin-top: 1.5rem;
+    font-size: 0.8750rem;
+    margin-top: 1.5000rem;
     color: var(--cor-branca);
-    margin-bottom: 0.6rem;
+    margin-bottom: .6rem;
 }
 
+/* alternar layout */
 .sobre-bloco:nth-child(even) {
     grid-template-columns: 1fr 1fr;
 }
 
-/* BTN PDF */
-.btn-download {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 22px;
-    border: 2px solid #d62728;
-    color: #fff;
-    font-family: Cinzel, serif;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.3s ease;
-    background-color: #d62728;
+/* ===== BENEFÍCIOS ===== */
+.beneficios h3 {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
-.btn-download:hover {
-    background: #fff;
-    color: #d62728;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.6250rem, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--cor-branca);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.8750rem;
+    box-shadow: 0 0.1875rem 0.7500rem rgba(0, 0, 0, 0.08);
+    border: 0.0625rem solid var(--cor-cinza-claro);
+}
+
+.card h4 {
+    color: var(--cor-primaria);
+    margin-bottom: .8rem;
+}
+
+.card p {
+    color: var(--cor-secundaria);
 }
 
 /* ===== FOOTER ===== */
@@ -176,34 +255,41 @@ footer {
 .footer-grid {
     display: grid;
     gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(15.6rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15.6250rem, 1fr));
     align-items: start;
 }
 
 .footer-col .logo-img {
-    height: 3.75rem;
+    height: 3.7500rem;
     margin-bottom: 1rem;
 }
 
+.footer-col h3 {
+    font-size: 1.4rem;
+    margin-bottom: .8rem;
+}
+
 /* ===== RESPONSIVE ===== */
-@media (max-width: 56.25rem) {
+@media (max-width: 56.2500rem) {
     .sobre-bloco {
         grid-template-columns: 1fr;
         text-align: center;
     }
 }
 
+
 /* centralization fix */
 .sobre .container {
-    max-width: 53.125rem;
+    max-width: 53.1250rem;
 }
 
 .sobre-bloco {
-    max-width: 81.25rem;
+    max-width: 81.2500rem;
     margin: 0 auto;
 }
 
-/* HEADER scroll behavior */
+
+/* Header transparency + scrolled state */
 header {
     background: transparent !important;
     transition: background 0.35s ease, box-shadow 0.35s ease;
@@ -211,7 +297,7 @@ header {
 
 header.scrolled {
     background: rgba(26, 26, 26, 0.92) !important;
-    box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.2500rem 0.8750rem rgba(0, 0, 0, 0.25);
 }
 
 /* smooth scroll */
@@ -219,24 +305,200 @@ html {
     scroll-behavior: smooth;
 }
 
-/* separadores */
+/* separators */
 .sobre-bloco {
     padding-bottom: 3rem;
-    border-bottom: 3px solid var(--cor-cinza-claro);
+    border-bottom: 0.1875rem solid var(--cor-cinza-claro);
 }
 
 .sobre-bloco:last-child {
     border-bottom: none;
 }
 
+.sobre-bloco img {
+    width: 100%;
+    max-width: 480px;
+    /* deixa todas com tamanho uniforme */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
 /* Reveal animation */
 .reveal {
     opacity: 0;
-    transform: translateY(2.5rem);
+    transform: translateY(2.5000rem);
     transition: all 0.7s ease;
 }
 
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.logo-img {
+    height: 5.0000rem !important;
+    width: auto;
+    object-fit: contain;
+}
+
+header .logo-img {
+    height: 3.4375rem !important;
+}
+
+/* Flip suave apenas para imagens do SOBRE */
+.sobre-bloco img.reveal {
+    transform: rotateX(90deg);
+    /* ALTERE AQUI */
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.6s ease;
+}
+
+.sobre-bloco img.reveal.visible {
+    transform: rotateX(0deg);
+    /* E AQUI */
+    opacity: 1;
+}
+
+.icon-social {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    margin: .5rem;
+    margin-top: 1rem;
+}
+
+.social a {
+    text-decoration: none;
+}
+
+.icon-social:hover {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(92%) saturate(7338%) hue-rotate(358deg) brightness(94%) contrast(119%);
+    transform: scale(1.1);
+}
+
+.btn-download {
+    display: inline-block;
+    margin: 20px auto 0 auto;
+    /* centraliza e cria o mesmo espaço */
+    padding: 12px 26px;
+    border: 2px solid #d62728;
+    color: #fff;
+    background: #d62728;
+    font-family: "Cinzel", serif;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    width: fit-content;
+    /* evita esticar */
+    text-align: center;
+    /* fixa centralização */
+}
+
+.btn-download:hover {
+    background: #fff;
+    color: #d62728;
+}
+
+@media (max-width: 900px) {
+    .sobre-bloco {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+
+    .sobre-bloco img {
+        margin: 0 auto;
+    }
+
+    .texto {
+        align-items: center;
+    }
+
+    .nav-menu {
+        display: none;
+        /* podemos depois fazer menu hambúrguer */
+    }
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 11vw;
+        /* hero mais equilibrado */
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+}
+
+/* ===========================
+   RESPONSIVO PARA TABLET
+   =========================== */
+@media (max-width: 900px) {
+
+    /* Padding lateral confortável */
+    .sobre {
+        padding: 0 20px;
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr !important;
+        /* sempre uma coluna */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .texto {
+        align-items: center;
+    }
+
+    .texto h4 {
+        text-align: center;
+    }
+
+    .texto span,
+    .texto p {
+        text-align: center;
+    }
+
+    .sobre-bloco img {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+
+/* ===========================
+   RESPONSIVO PARA CELULAR
+   =========================== */
+@media (max-width: 600px) {
+
+    /* Ainda mais padding no celular */
+    .sobre {
+        padding: 0 16px;
+    }
+
+    .sobre-bloco {
+        gap: 28px;
+    }
+
+    .texto h4 {
+        font-size: 1.7rem;
+    }
+
+    #cta-btn {
+        width: 100%;
+    }
+
+    /* Ajusta hero também (ficou ótimo no seu site, só refinando) */
+    .hero {
+        padding: 120px 16px 40px 16px;
+    }
+
+    .hero h2 {
+        font-size: 12vw;
+    }
 }
