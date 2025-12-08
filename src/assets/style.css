@@ -1,561 +1,217 @@
-/* ===== RESET ===== */
+/* ============================================================
+   TEX Engenharia – ELARA BUILD STYLE v1.0
+   Breakpoints oficiais: 964px / 723px / 482px
+   Layout estável e limpo, sem duplicações
+============================================================ */
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== ROOT COLORS (TEX ENGENHARIA) ===== */
-:root {
-    --cor-primaria: #D62728;
-    --cor-secundaria: #1A1A1A;
-    --cor-cinza-claro: #D2D2D2;
-    --cor-cinza-medio: #BEBEBE;
-    --cor-branca: #FFFFFF;
-    --cor-texto: #1A1A1A;
-    --cor-fundo: #FAFAFA;
+html {
+    scroll-behavior: smooth;
 }
 
-/* ===== BODY ===== */
 body {
     font-family: 'Cinzel', serif;
-    background: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100% 100%);
-    /* background: var(--cor-fundo); */
-    color: var(--cor-texto);
+    background: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100%);
+    color: #fff;
     line-height: 1.6;
 }
 
-/* ===== CONTAINER ===== */
+/* GLOBAL CONTAINER */
 .container {
     width: 90%;
-    max-width: 75.0000rem;
+    max-width: 1200px;
     margin: 0 auto;
-    line-height: 1;
 }
 
-/* ===== HEADER ===== */
-/* HEADER FIXO E TRANSPARENTE, SEM SCROLL */
-/* HEADER RELATIVO AO HERO — NÃO SEGUE O SCROLL */
+/* ============================================================
+   HEADER (Desktop visible ≥964px, hidden <964px)
+============================================================ */
+
 .header {
     position: absolute;
-    top: 70px;
-    left: 0;
+    top: 0;
     width: 100%;
     height: 120px;
     display: flex;
     align-items: center;
-    /* centraliza verticalmente */
-    z-index: 999;
     background: transparent;
     padding: 0 40px;
-    /* <<< garante espaçamento lateral IGUAL à referência */
+    z-index: 999;
 }
 
-/* Container interno */
 .header-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
-    /* usa 120px inteiros do header */
+    gap: 55px;
 }
 
-/* Logo */
-.logo {
-    font-family: "Cinzel", serif;
-    font-size: 80px;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: 2px;
-    padding-right: 30px;
-}
-
-/* NAV MENU */
 .nav-menu {
     display: flex;
-    align-items: center;
-    gap: 30px;
-    /* mantém espaçamento entre itens */
+    gap: 28px;
 }
 
 .nav-menu a {
     color: #fff;
-    font-family: "Cinzel", serif;
+    text-decoration: none;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-decoration: none;
 }
 
-
-.nav-menu a:hover {
-    opacity: .6;
+@media (max-width: 963px) {
+    .header {
+        display: none !important;
+        /* HEADER some no tablet/mobile */
+    }
 }
 
+/* ============================================================
+   HERO
+============================================================ */
 
-
-
-/* ===== HERO ===== */
 .hero {
     min-height: 100vh;
     padding-top: 120px;
-    /* altura EXATA do header */
     display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
-    color: #fff;
 
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
-        url('/assets/img/hero.jpg') center/cover no-repeat;
+    background:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+        url('../assets/img/hero.jpg') center/cover no-repeat;
 }
-
 
 .hero h2 {
-    padding-top: 12rem;
-    padding-bottom: 2.8125rem;
-    font-size: 6.7vw;
+    font-size: 7vw;
     font-weight: 500;
-    /* font-size: 2.5rem; */
-    margin-bottom: 1rem;
 }
 
-.hero a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0.3125rem;
-    margin: 0.3750rem;
-}
+/* ============================================================
+   SOBRE
+   Desktop >= 964px → 2 colunas
+   Tablet 964 → 723 → 1 coluna
+   Mobile 723 → 482 → 1 coluna
+============================================================ */
 
-#cta-btn {
-    background: var(--cor-branca);
-    color: var(--cor-primaria);
-    border: none;
-    padding: .9rem 3rem;
-    border-radius: 0.5000rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 4rem;
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-
-}
-
-#cta-btn:hover {
-    background: var(--cor-cinza-claro);
-}
-
-/* ===== SECTIONS ===== */
-section {
-    padding: 5rem 0;
-}
-
-/* ===== SOBRE ===== */
-.sobre h3 {
-    font-size: 2rem;
-    color: var(--cor-primaria);
-    text-align: center;
-    margin-bottom: 2rem;
+.sobre {
+    padding-top: 5rem;
 }
 
 .sobre-blocos {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    margin-top: 3rem;
 }
 
 .sobre-bloco {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    align-items: center;
-}
-
-.sobre-bloco img {
-    width: 100%;
-    border-radius: 0.7500rem;
-    box-shadow: 0 0.2500rem 0.7500rem rgba(0, 0, 0, 0.15);
-}
-
-.sobre-bloco .texto h4 {
-    /* font-size: 1.6rem; */
-    font-size: 2.3125rem;
-    font-weight: normal;
-    color: var(--cor-branca);
-    /* color: var(--cor-primaria);*/
-    margin-bottom: .8rem;
-}
-
-.sobre-bloco .texto span {
-    color: var(--cor-branca);
-    font-weight: 500;
-}
-
-.sobre-bloco .texto p {
-    font-size: 0.8750rem;
-    margin-top: 1.5000rem;
-    color: var(--cor-branca);
-    margin-bottom: .6rem;
-}
-
-/* alternar layout */
-.sobre-bloco:nth-child(even) {
     grid-template-columns: 1fr 1fr;
-}
+    gap: 2.5rem;
+    align-items: center;
 
-/* ===== BENEFÍCIOS ===== */
-.beneficios h3 {
-    text-align: center;
-    color: var(--cor-primaria);
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15.6250rem, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background: var(--cor-branca);
-    padding: 2rem;
-    text-align: center;
-    border-radius: 0.8750rem;
-    box-shadow: 0 0.1875rem 0.7500rem rgba(0, 0, 0, 0.08);
-    border: 0.0625rem solid var(--cor-cinza-claro);
-}
-
-.card h4 {
-    color: var(--cor-primaria);
-    margin-bottom: .8rem;
-}
-
-.card p {
-    color: var(--cor-secundaria);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    padding: 6rem 2rem;
-    background: var(--cor-secundaria);
-    color: var(--cor-branca);
-}
-
-.footer-grid {
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(15.6250rem, 1fr));
-    align-items: start;
-}
-
-.footer-col .logo-img {
-    height: 3.7500rem;
-    margin-bottom: 1rem;
-}
-
-.footer-col h3 {
-    font-size: 1.4rem;
-    margin-bottom: .8rem;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 56.2500rem) {
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-
-/* centralization fix */
-.sobre .container {
-    max-width: 53.1250rem;
-}
-
-.sobre-bloco {
-    max-width: 81.2500rem;
-    margin: 0 auto;
-}
-
-
-/* Header transparency + scrolled state */
-header {
-    background: transparent !important;
-    transition: background 0.35s ease, box-shadow 0.35s ease;
-}
-
-header.scrolled {
-    background: rgba(26, 26, 26, 0.92) !important;
-    box-shadow: 0 0.2500rem 0.8750rem rgba(0, 0, 0, 0.25);
-}
-
-/* smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* separators */
-.sobre-bloco {
     padding-bottom: 3rem;
-    border-bottom: 0.1875rem solid var(--cor-cinza-claro);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .sobre-bloco:last-child {
     border-bottom: none;
 }
 
+.sobre-bloco .texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sobre-bloco .texto h4 {
+    font-size: 2.3rem;
+}
+
+.sobre-bloco .texto p {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+}
+
 .sobre-bloco img {
     width: 100%;
     max-width: 480px;
-    /* deixa todas com tamanho uniforme */
-    height: auto;
-    object-fit: cover;
     border-radius: 10px;
-}
-
-
-/* Reveal animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(2.5000rem);
-    transition: all 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.logo-img {
-    height: 5.0000rem !important;
-    width: auto;
-    object-fit: contain;
-}
-
-header .logo-img {
-    height: 3.4375rem !important;
-}
-
-/* Flip suave apenas para imagens do SOBRE */
-.sobre-bloco img.reveal {
-    transform: rotateX(90deg);
-    /* ALTERE AQUI */
-    opacity: 0;
-    transition: transform 0.8s ease, opacity 0.6s ease;
-}
-
-.sobre-bloco img.reveal.visible {
-    transform: rotateX(0deg);
-    /* E AQUI */
-    opacity: 1;
-}
-
-.icon-social {
-    width: 2rem;
-    height: 2rem;
-    filter: brightness(0) invert(1);
-    transition: filter 0.3s ease, transform 0.3s ease;
-    margin: .5rem;
-    margin-top: 1rem;
-}
-
-.social a {
-    text-decoration: none;
-}
-
-.icon-social:hover {
-    filter: brightness(0) saturate(100%) invert(17%) sepia(92%) saturate(7338%) hue-rotate(358deg) brightness(94%) contrast(119%);
-    transform: scale(1.1);
+    object-fit: cover;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .btn-download {
     display: inline-block;
-    margin: 20px auto 0 auto;
-    /* centraliza e cria o mesmo espaço */
-    padding: 12px 26px;
-    border: 2px solid #d62728;
-    color: #fff;
-    background: #d62728;
-    font-family: "Cinzel", serif;
-    font-size: 1rem;
-    text-decoration: none;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: #D62728;
+    border: 2px solid #D62728;
     border-radius: 6px;
-    transition: 0.3s ease;
-    width: fit-content;
-    /* evita esticar */
-    text-align: center;
-    /* fixa centralização */
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
 }
 
 .btn-download:hover {
     background: #fff;
-    color: #d62728;
+    color: #D62728;
 }
 
-@media (max-width: 900px) {
+/* ===== SOBRE TABLET LARGE (964px → 723px) ===== */
+
+@media (max-width: 964px) {
+    .sobre {
+        padding: 0 28px;
+    }
+
     .sobre-bloco {
         grid-template-columns: 1fr !important;
         text-align: center;
+        gap: 32px;
+    }
+
+    .sobre-bloco .texto {
+        align-items: center;
     }
 
     .sobre-bloco img {
         margin: 0 auto;
     }
 
-    .texto {
-        align-items: center;
-    }
-
-    .nav-menu {
-        display: none;
-        /* podemos depois fazer menu hambúrguer */
+    .btn-download {
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 600px) {
-    h2 {
-        font-size: 11vw;
-        /* hero mais equilibrado */
-    }
+/* ===== SOBRE TABLET / MOBILE (723px → 482px) ===== */
 
-    .footer-col {
-        text-align: center;
-    }
-}
-
-/* ===========================
-   RESPONSIVO PARA TABLET
-   =========================== */
-@media (max-width: 900px) {
-
-    .hero {
-        padding: 40px 16px 40px 16px;
-    }
-
-    /* Padding lateral confortável */
+@media (max-width: 723px) {
     .sobre {
         padding: 0 20px;
     }
 
     .sobre-bloco {
-        grid-template-columns: 1fr !important;
-        /* sempre uma coluna */
-        text-align: center;
-        gap: 20px;
-    }
-
-    .texto {
-        align-items: center;
-    }
-
-    .texto h4 {
-        text-align: center;
-    }
-
-    .texto span,
-    .texto p {
-        text-align: center;
+        gap: 30px;
     }
 
     .sobre-bloco img {
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
+        max-width: 420px;
     }
 }
 
-/* ===========================
-   RESPONSIVO PARA CELULAR
-   =========================== */
-@media (max-width: 600px) {
+/* ===== SOBRE MOBILE (≤482px) ===== */
 
-    /* Ainda mais padding no celular */
-    .sobre {
-        padding: 0 16px;
-    }
-
-    .sobre-bloco {
-        gap: 28px;
-    }
-
-    .texto h4 {
-        font-size: 1.7rem;
-    }
-
-    #cta-btn {
-        width: 100%;
-    }
-
-    /* Ajusta hero também (ficou ótimo no seu site, só refinando) */
-
-    .hero h2 {
-        font-size: 12vw;
-    }
-}
-
-/* ============================================================
-   FIX 1 — SOBRE quebrando entre 1366px e 900px
-   Força padding lateral + impede esticamento total
-   ============================================================ */
-@media (max-width: 1366px) and (min-width: 901px) {
-
-    .sobre {
-        width: 95%;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 32px;
-        /* <-- evita que o conteúdo grude nas bordas */
-    }
-
-    .sobre-bloco {
-        gap: 2.5rem;
-        /* melhor proporção para telas médias */
-    }
-}
-
-/* ============================================================
-   FIX 2 — Coluna única a partir de 900px (tablet vertical)
-   Já existia algo assim, mas estava duplicado/bugado
-   ============================================================ */
-@media (max-width: 900px) {
-
-    .sobre {
-        padding: 0 22px;
-        /* padding confortável */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 28px;
-    }
-
-    .sobre-bloco img {
-        margin: 0 auto;
-        max-width: 450px;
-    }
-
-    .texto {
-        align-items: center;
-    }
-}
-
-/* ============================================================
-   FIX 3 — Mobile refinado (≤600px)
-   ============================================================ */
-@media (max-width: 600px) {
-
+@media (max-width: 482px) {
     .sobre {
         padding: 0 16px;
     }
@@ -564,184 +220,59 @@ header .logo-img {
         gap: 26px;
     }
 
-    .texto h4 {
-        font-size: 1.7rem;
-    }
-
-    .sobre-bloco img {
-        max-width: 340px;
-    }
-}
-
-/* ============================================================
-   FIX 4 — FOOTER vira 1 coluna em < 900px
-   ============================================================ */
-@media (max-width: 900px) {
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 2rem;
-    }
-}
-
-/* ============================================================
-   ELARA BUILD — SOBRE (NOVOS BREAKPOINTS + PADDINGS CONFORTÁVEIS)
-   Base 241px — breakpoint principal: 964px
-============================================================ */
-
-/* DESKTOP (>= 965px) — nada muda no seu layout atual */
-@media (min-width: 965px) {
-    .sobre {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
-}
-
-/* TABLET LARGE (entre 964px e 723px) */
-@media (max-width: 964px) and (min-width: 724px) {
-    .sobre {
-        width: 100%;
-        padding: 0 28px;
-        /* padding confortável */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 32px;
-    }
-
-    .sobre-bloco img {
-        margin: 0 auto;
-        max-width: 480px;
-    }
-
-    .sobre-bloco .texto {
-        align-items: center;
-    }
-}
-
-/* TABLET (723px → 482px) */
-@media (max-width: 723px) and (min-width: 483px) {
-    .sobre {
-        padding: 0 20px;
-        /* padding confortável tablet */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .texto {
-        align-items: center;
-    }
-
-    .btn-download {
-        margin: 0 auto;
-    }
-}
-
-/* MOBILE (≤ 482px) */
-@media (max-width: 482px) {
-    .sobre {
-        padding: 0 16px;
-        /* padding confortável mobile */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .sobre-bloco img {
-        max-width: 340px;
-        margin: 0 auto;
-    }
-
-    .texto h4 {
+    .sobre-bloco .texto h4 {
         font-size: 1.8rem;
     }
 
-    .btn-download {
-        margin: 0 auto;
+    .sobre-bloco img {
+        max-width: 340px;
     }
 }
 
 /* ============================================================
-   ELARA BUILD — FOOTER (breakpoints 964 / 723 / 482)
+   FOOTER — Desktop 2 colunas / <964px 1 coluna
 ============================================================ */
 
-/* DESKTOP (>=965px) — 2 colunas */
-@media (min-width: 965px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
+footer#contato {
+    background: #111;
+    padding: 4rem 2rem;
 }
 
-/* TABLET (964px → 723px) — 1 coluna */
-@media (max-width: 964px) and (min-width: 724px) {
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+@media (max-width: 964px) {
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         text-align: center;
-        gap: 2rem;
     }
 }
 
-/* MOBILE (≤723px) — 1 coluna + padding */
 @media (max-width: 723px) {
     footer#contato {
-        padding: 2.8rem 22px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
+        padding: 3rem 20px;
     }
 }
 
-/* MOBILE XS (≤482px) — tighter layout */
 @media (max-width: 482px) {
     footer#contato {
         padding: 2.5rem 16px;
     }
-
-    .footer-grid {
-        gap: 1.6rem;
-    }
 }
 
-/* ============================
-   HEADER: ocultar em < 964px (Elara Build)
-   - Visível quando largura >= 964px
-   - Oculto quando largura < 964px
-   ============================ */
-
-/* Mantém visível em 964px e acima */
-@media (min-width: 964px) {
-    .header {
-        display: flex;
-        /* garantir visibilidade no desktop/tablet-large */
-        position: absolute;
-        /* ou o estilo que você já usa */
-        top: 0;
-        width: 100%;
-        z-index: 999;
-    }
+/* ============================================================
+   REVEAL ANIMATION
+============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s ease;
 }
 
-/* Oculta abaixo de 964px (i.e. 963px e menores) */
-@media (max-width: 963px) {
-    .header {
-        display: none !important;
-        /* forçamos para evitar override */
-    }
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
