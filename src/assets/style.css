@@ -269,15 +269,6 @@ footer {
     margin-bottom: .8rem;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 56.2500rem) {
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-
 /* centralization fix */
 .sobre .container {
     max-width: 53.1250rem;
@@ -403,158 +394,98 @@ header .logo-img {
     color: #d62728;
 }
 
-@media (max-width: 900px) {
+/* ============================================================
+   ELARA BUILD RESPONSIVE v1.0
+   Breakpoints oficiais:
+   - 964px  → tablet-large
+   - 723px  → tablet
+   - 482px  → mobile
+   Saiba: O desktop permanece exatamente como está.
+============================================================ */
+
+/* ============================================================
+   1) TABLET-LARGE — < 964px
+   - Header some
+   - Sobre vira 1 coluna
+   - Footer vira 1 coluna
+   - Paddings confortáveis
+============================================================ */
+
+@media (max-width: 964px) {
+
+    /* HEADER some abaixo de 964px */
+    .header {
+        display: none !important;
+    }
+
+    /* SOBRE — 1 coluna */
+    .sobre {
+        width: 100%;
+        padding: 0 28px;
+    }
+
     .sobre-bloco {
         grid-template-columns: 1fr !important;
         text-align: center;
+        gap: 32px;
+    }
+
+    .sobre-bloco .texto {
+        align-items: center;
     }
 
     .sobre-bloco img {
         margin: 0 auto;
+        max-width: 480px;
     }
 
-    .texto {
-        align-items: center;
+    /* botão centralizado */
+    .btn-download {
+        margin: 0 auto;
     }
 
-    .nav-menu {
-        display: none;
-        /* podemos depois fazer menu hambúrguer */
-    }
-}
-
-@media (max-width: 600px) {
-    h2 {
-        font-size: 11vw;
-        /* hero mais equilibrado */
-    }
-
-    .footer-col {
+    /* FOOTER — 1 coluna */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
         text-align: center;
+        gap: 2rem;
     }
 }
 
-/* ===========================
-   RESPONSIVO PARA TABLET
-   =========================== */
-@media (max-width: 900px) {
+/* ============================================================
+   2) TABLET — < 723px
+   - Ajuste de paddings
+   - Imagem reduz levemente
+============================================================ */
 
-    .hero {
-        padding: 40px 16px 40px 16px;
-    }
+@media (max-width: 723px) {
 
-    /* Padding lateral confortável */
     .sobre {
         padding: 0 20px;
     }
 
     .sobre-bloco {
-        grid-template-columns: 1fr !important;
-        /* sempre uma coluna */
-        text-align: center;
-        gap: 20px;
-    }
-
-    .texto {
-        align-items: center;
-    }
-
-    .texto h4 {
-        text-align: center;
-    }
-
-    .texto span,
-    .texto p {
-        text-align: center;
+        gap: 30px;
     }
 
     .sobre-bloco img {
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
-    }
-}
-
-/* ===========================
-   RESPONSIVO PARA CELULAR
-   =========================== */
-@media (max-width: 600px) {
-
-    /* Ainda mais padding no celular */
-    .sobre {
-        padding: 0 16px;
+        max-width: 420px;
     }
 
-    .sobre-bloco {
-        gap: 28px;
-    }
-
-    .texto h4 {
-        font-size: 1.7rem;
-    }
-
-    #cta-btn {
-        width: 100%;
-    }
-
-    /* Ajusta hero também (ficou ótimo no seu site, só refinando) */
-
-    .hero h2 {
-        font-size: 12vw;
+    /* Footer padding */
+    footer#contato {
+        padding: 3rem 20px;
     }
 }
 
 /* ============================================================
-   FIX 1 — SOBRE quebrando entre 1366px e 900px
-   Força padding lateral + impede esticamento total
-   ============================================================ */
-@media (max-width: 1366px) and (min-width: 901px) {
+   3) MOBILE — < 482px
+   - Tipografia reduz
+   - Padding mais estreito
+   - Imagem menor
+============================================================ */
 
-    .sobre {
-        width: 95%;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 32px;
-        /* <-- evita que o conteúdo grude nas bordas */
-    }
-
-    .sobre-bloco {
-        gap: 2.5rem;
-        /* melhor proporção para telas médias */
-    }
-}
-
-/* ============================================================
-   FIX 2 — Coluna única a partir de 900px (tablet vertical)
-   Já existia algo assim, mas estava duplicado/bugado
-   ============================================================ */
-@media (max-width: 900px) {
-
-    .sobre {
-        padding: 0 22px;
-        /* padding confortável */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 28px;
-    }
-
-    .sobre-bloco img {
-        margin: 0 auto;
-        max-width: 450px;
-    }
-
-    .texto {
-        align-items: center;
-    }
-}
-
-/* ============================================================
-   FIX 3 — Mobile refinado (≤600px)
-   ============================================================ */
-@media (max-width: 600px) {
+@media (max-width: 482px) {
 
     .sobre {
         padding: 0 16px;
@@ -564,184 +495,51 @@ header .logo-img {
         gap: 26px;
     }
 
-    .texto h4 {
-        font-size: 1.7rem;
-    }
-
-    .sobre-bloco img {
-        max-width: 340px;
-    }
-}
-
-/* ============================================================
-   FIX 4 — FOOTER vira 1 coluna em < 900px
-   ============================================================ */
-@media (max-width: 900px) {
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 2rem;
-    }
-}
-
-/* ============================================================
-   ELARA BUILD — SOBRE (NOVOS BREAKPOINTS + PADDINGS CONFORTÁVEIS)
-   Base 241px — breakpoint principal: 964px
-============================================================ */
-
-/* DESKTOP (>= 965px) — nada muda no seu layout atual */
-@media (min-width: 965px) {
-    .sobre {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
-}
-
-/* TABLET LARGE (entre 964px e 723px) */
-@media (max-width: 964px) and (min-width: 724px) {
-    .sobre {
-        width: 100%;
-        padding: 0 28px;
-        /* padding confortável */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 32px;
-    }
-
-    .sobre-bloco img {
-        margin: 0 auto;
-        max-width: 480px;
-    }
-
-    .sobre-bloco .texto {
-        align-items: center;
-    }
-}
-
-/* TABLET (723px → 482px) */
-@media (max-width: 723px) and (min-width: 483px) {
-    .sobre {
-        padding: 0 20px;
-        /* padding confortável tablet */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .texto {
-        align-items: center;
-    }
-
-    .btn-download {
-        margin: 0 auto;
-    }
-}
-
-/* MOBILE (≤ 482px) */
-@media (max-width: 482px) {
-    .sobre {
-        padding: 0 16px;
-        /* padding confortável mobile */
-    }
-
-    .sobre-bloco {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .sobre-bloco img {
-        max-width: 340px;
-        margin: 0 auto;
-    }
-
-    .texto h4 {
+    .sobre-bloco .texto h4 {
         font-size: 1.8rem;
     }
 
-    .btn-download {
+    .sobre-bloco img {
+        max-width: 340px;
         margin: 0 auto;
+    }
+
+    footer#contato {
+        padding: 2.5rem 16px;
     }
 }
 
 /* ============================================================
-   ELARA BUILD — FOOTER (breakpoints 964 / 723 / 482)
+   ELARA BUILD — DESKTOP MÉDIO (1340px → 964px)
+   Padding confortável para laptops médios
 ============================================================ */
 
-/* DESKTOP (>=965px) — 2 colunas */
-@media (min-width: 965px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
-}
+@media (max-width: 1340px) and (min-width: 964px) {
 
-/* TABLET (964px → 723px) — 1 coluna */
-@media (max-width: 964px) and (min-width: 724px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+    /* SOBRE */
+    .sobre {
+        width: 95%;
+        max-width: 1100px;
+        padding: 0 32px;
+        /* pad confortável */
+        margin: 0 auto;
     }
-}
 
-/* MOBILE (≤723px) — 1 coluna + padding */
-@media (max-width: 723px) {
+    .sobre-bloco {
+        gap: 2.2rem;
+    }
+
+    /* FOOTER */
     footer#contato {
-        padding: 2.8rem 22px;
+        padding: 4rem 32px;
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-    }
-}
-
-/* MOBILE XS (≤482px) — tighter layout */
-@media (max-width: 482px) {
-    footer#contato {
-        padding: 2.5rem 16px;
+        gap: 2.2rem;
     }
 
-    .footer-grid {
-        gap: 1.6rem;
-    }
-}
-
-/* ============================
-   HEADER: ocultar em < 964px (Elara Build)
-   - Visível quando largura >= 964px
-   - Oculto quando largura < 964px
-   ============================ */
-
-/* Mantém visível em 964px e acima */
-@media (min-width: 964px) {
-    .header {
-        display: flex;
-        /* garantir visibilidade no desktop/tablet-large */
-        position: absolute;
-        /* ou o estilo que você já usa */
-        top: 0;
-        width: 100%;
-        z-index: 999;
-    }
-}
-
-/* Oculta abaixo de 964px (i.e. 963px e menores) */
-@media (max-width: 963px) {
-    .header {
-        display: none !important;
-        /* forçamos para evitar override */
+    /* HERO */
+    .hero {
+        padding: 120px 32px 60px;
     }
 }
