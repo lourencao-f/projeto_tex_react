@@ -583,3 +583,94 @@ header .logo-img {
         gap: 2rem;
     }
 }
+
+/* ============================================================
+   ELARA BUILD — SOBRE (NOVOS BREAKPOINTS + PADDINGS CONFORTÁVEIS)
+   Base 241px — breakpoint principal: 964px
+============================================================ */
+
+/* DESKTOP (>= 965px) — nada muda no seu layout atual */
+@media (min-width: 965px) {
+    .sobre {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* TABLET LARGE (entre 964px e 723px) */
+@media (max-width: 964px) and (min-width: 724px) {
+    .sobre {
+        width: 100%;
+        padding: 0 28px;
+        /* padding confortável */
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+    }
+
+    .sobre-bloco img {
+        margin: 0 auto;
+        max-width: 480px;
+    }
+
+    .sobre-bloco .texto {
+        align-items: center;
+    }
+}
+
+/* TABLET (723px → 482px) */
+@media (max-width: 723px) and (min-width: 483px) {
+    .sobre {
+        padding: 0 20px;
+        /* padding confortável tablet */
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .texto {
+        align-items: center;
+    }
+
+    .btn-download {
+        margin: 0 auto;
+    }
+}
+
+/* MOBILE (≤ 482px) */
+@media (max-width: 482px) {
+    .sobre {
+        padding: 0 16px;
+        /* padding confortável mobile */
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .sobre-bloco img {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .texto h4 {
+        font-size: 1.8rem;
+    }
+
+    .btn-download {
+        margin: 0 auto;
+    }
+}
