@@ -498,8 +498,88 @@ header .logo-img {
     }
 
     /* Ajusta hero também (ficou ótimo no seu site, só refinando) */
-   
+
     .hero h2 {
         font-size: 12vw;
+    }
+}
+
+/* ============================================================
+   FIX 1 — SOBRE quebrando entre 1366px e 900px
+   Força padding lateral + impede esticamento total
+   ============================================================ */
+@media (max-width: 1366px) and (min-width: 901px) {
+
+    .sobre {
+        width: 95%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 32px;
+        /* <-- evita que o conteúdo grude nas bordas */
+    }
+
+    .sobre-bloco {
+        gap: 2.5rem;
+        /* melhor proporção para telas médias */
+    }
+}
+
+/* ============================================================
+   FIX 2 — Coluna única a partir de 900px (tablet vertical)
+   Já existia algo assim, mas estava duplicado/bugado
+   ============================================================ */
+@media (max-width: 900px) {
+
+    .sobre {
+        padding: 0 22px;
+        /* padding confortável */
+    }
+
+    .sobre-bloco {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .sobre-bloco img {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+
+    .texto {
+        align-items: center;
+    }
+}
+
+/* ============================================================
+   FIX 3 — Mobile refinado (≤600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    .sobre {
+        padding: 0 16px;
+    }
+
+    .sobre-bloco {
+        gap: 26px;
+    }
+
+    .texto h4 {
+        font-size: 1.7rem;
+    }
+
+    .sobre-bloco img {
+        max-width: 340px;
+    }
+}
+
+/* ============================================================
+   FIX 4 — FOOTER vira 1 coluna em < 900px
+   ============================================================ */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem;
     }
 }
