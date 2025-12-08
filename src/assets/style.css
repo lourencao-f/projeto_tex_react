@@ -146,7 +146,9 @@ section {
 
 /* ============ SOBRE ============ */
 .sobre {
-    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* padding lateral será aplicado só no responsivo conforme pedido */
@@ -161,7 +163,7 @@ section {
 /* cada bloco é grid 2 colunas no desktop */
 .sobre-bloco {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1fr, 1fr);
     gap: 2rem;
     align-items: center;
     padding-bottom: 3rem;
@@ -209,6 +211,9 @@ section {
     text-decoration: none;
     font-weight: 600;
     border: 2px solid var(--prim);
+    width: auto;
+    /* garante botão natural */
+    display: inline-block;
 }
 
 .btn-download:hover {
@@ -248,7 +253,7 @@ section {
 
 /* ===== FOOTER ===== */
 footer#contato {
-    background: transparent;
+    background: #1A1A1A;
     color: var(--white);
     padding: 3rem 0;
 }
@@ -297,7 +302,7 @@ footer#contato {
     }
 
     .sobre-bloco {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
         text-align: center;
         gap: 18px;
     }
@@ -370,6 +375,7 @@ footer#contato {
     /* botão full-width opcional */
     .btn-download {
         width: fit-content;
+        margin: 0 auto;
     }
 
     /* se quiser full width, trocar para width:100% */
