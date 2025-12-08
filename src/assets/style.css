@@ -423,6 +423,9 @@ header .logo-img {
         width: 100%;
         padding: 0 28px;
     }
+    .hero h2{
+        width: 14vw;
+    }
 
     .sobre-bloco {
         grid-template-columns: 1fr !important;
