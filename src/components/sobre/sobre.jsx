@@ -21,17 +21,17 @@ export default function Sobre() {
                             Fornecemos desenhos de montagem com lista de componentes.
                         </p>
 
-                        <a className="btn-download" href="/assets/pdf/projetos-mecanicos.pdf" download="projetos-mecanicos.pdf">
+                        <a className="btn-download" href={import.meta.env.BASE_URL + '/assets/pdf/projetos-mecanicos.pdf'} download="projetos-mecanicos.pdf">
                             Baixar PDF Projetos Mecânicos
                         </a>
                     </div>
 
-                    <img className="reveal" src="/assets/img/projetos_mecanicos.jpg" alt="Projetos Mecânicos" />
+                    <img className="reveal" src={import.meta.env.BASE_URL + '/assets/img/projetos_mecanicos.jpg'} alt="Projetos Mecânicos" />
                 </div>
 
                 {/* BLOCO 2 — Impressão 3D */}
                 <div className="sobre-bloco" id="impressao-3d">
-                    <img className="reveal" src="/assets/img/impressora_3d.jpg" alt="Impressão 3D" />
+                    <img className="reveal" src={import.meta.env.BASE_URL + '/assets/img/impressora_3d.jpg'} alt="Impressão 3D" />
 
                     <div className="texto reveal">
                         <h4>Impressão 3D</h4>
@@ -47,6 +47,9 @@ export default function Sobre() {
                         <p>
                             Se você já possui o modelo 3D, envie via WhatsApp com nome e e-mail. Respondemos rapidamente.
                         </p>
+                        <a className="btn-download" href={import.meta.env.BASE_URL + '/assets/pdf/impressao3d.pdf'} download="impressao3d.pdf">
+                            Baixar PDF Impressão 3D
+                        </a>
                     </div>
                 </div>
 
@@ -61,17 +64,17 @@ export default function Sobre() {
                             Conferimos todas as formas e dimensões para garantir qualidade final.
                         </p>
 
-                        <a className="btn-download" href="/assets/pdf/usinagem.pdf" download>
+                        <a className="btn-download" href={import.meta.env.BASE_URL + '/assets/pdf/usinagem.pdf'} download>
                             Baixar PDF Usinagem
                         </a>
                     </div>
 
-                    <img className="reveal" src="/assets/img/usinagem.jpg" alt="Usinagem" />
+                    <img className="reveal" src={import.meta.env.BASE_URL + '/assets/img/usinagem.jpg'} alt="Usinagem" />
                 </div>
 
                 {/* BLOCO 4 — Corte a Laser */}
                 <div className="sobre-bloco" id="corte-laser">
-                    <img className="reveal" src="/assets/img/corte_a_laser.jpg" alt="Corte a Laser" />
+                    <img className="reveal" src={import.meta.env.BASE_URL + '/assets/img/corte_a_laser.jpg'} alt="Corte a Laser" />
 
                     <div className="texto reveal">
                         <h4>Corte a Laser</h4>
@@ -84,22 +87,23 @@ export default function Sobre() {
                     </div>
                 </div>
 
-                {/* BLOCO 4 — Corte a Laser */}
+                {/* BLOCO 4 — Automação */}
                 <div className="sobre-bloco" id="automacao">
 
                     <div className="texto reveal">                        <h4>Automação</h4>
-                        <span>texto texto</span>
+                        <span>Soluções em automação industrial para aumentar eficiência, precisão e segurança operacional.</span>
                         <p>
-                            texto texto texto
+                            Desenvolvemos projetos personalizados de automação utilizando sensores, atuadores, controladores e integração de sistemas.
+                            Ideal para linhas de produção, máquinas industriais e equipamentos especiais.
                         </p>
-                        <a className="btn-download" href="/assets/pdf/automacao.pdf" download="automacao.pdf">
+                        <a className="btn-download" href={import.meta.env.BASE_URL + '/assets/pdf/automacao.pdf'} download="automacao.pdf">
                             Baixar PDF Automação
                         </a>
                     </div>
-                    <img className="reveal" src="/assets/img/automacao.jpg" alt="Corte a Laser" />
+                    <img className="reveal" src={import.meta.env.BASE_URL + '/assets/img/automacao.jpg'} alt="Automação Industrial" />
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

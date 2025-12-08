@@ -7,15 +7,13 @@ import Footer from "./components/footer/footer";
 export default function App() {
   useEffect(() => {
     // botão Saiba Mais → scroll suave
-    const cta = document.getElementById("cta-btn");
-    if (cta) {
-      cta.onclick = () => {
-        const target = document.getElementById("sobre");
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      };
-    }
+    //const cta = document.getElementById("cta-btn");
+    //if (cta) {
+    // cta.onclick = () => {
+    //  const target = document.getElementById("sobre");
+    // if (target) {
+    //  target.scrollIntoView({ behavior: "smooth" });
+    // }};} 
 
     // reveal on scroll
     function revealOnScroll() {

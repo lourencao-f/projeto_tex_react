@@ -315,6 +315,16 @@ html {
     border-bottom: none;
 }
 
+.sobre-bloco img {
+    width: 100%;
+    max-width: 480px;
+    /* deixa todas com tamanho uniforme */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
 /* Reveal animation */
 .reveal {
     opacity: 0;
@@ -391,4 +401,35 @@ header .logo-img {
 .btn-download:hover {
     background: #fff;
     color: #d62728;
+}
+
+@media (max-width: 900px) {
+    .sobre-bloco {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+
+    .sobre-bloco img {
+        margin: 0 auto;
+    }
+
+    .texto {
+        align-items: center;
+    }
+
+    .nav-menu {
+        display: none;
+        /* podemos depois fazer menu hambúrguer */
+    }
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 11vw;
+        /* hero mais equilibrado */
+    }
+
+    .footer-col {
+        text-align: center;
+    }
 }
