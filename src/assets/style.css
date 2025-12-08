@@ -1,15 +1,15 @@
-/* ================
-   style.css (refatorado)
-   - Clean, comentado e responsivo
-   - Desktop: header absolute sobre hero, sobre-blocos alternam (A)
-   - Mobile/Tablet: padding lateral + todos os blocos em 1 coluna
-   ================ */
+/* ============================================================
+   TEX ENGINEERING WEBSITE — STYLE.CSS
+   Refatorado, organizado, isolado por breakpoints (desktop/tablet/mobile)
+   ============================================================ */
 
-/* ===== RESET ===== */
+/* ======================
+   RESET & ROOT
+   ====================== */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -19,139 +19,114 @@ html {
 :root {
     --prim: #D62728;
     --sec: #1A1A1A;
-    --light-gray: #D2D2D2;
-    --mid-gray: #BEBEBE;
     --white: #fff;
+    --light-gray: #D2D2D2;
     --text: #1A1A1A;
-    --bg: #FAFAFA;
-    --max-w: 75rem;
+    --gradient-bg: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100%);
 }
 
-/* ===== FONT (import) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-
-/* ===== BASE ===== */
+/* ======================
+   BODY
+   ====================== */
 body {
     font-family: 'Cinzel', serif;
-    color: var(--text);
     line-height: 1.6;
-    background: linear-gradient(135deg, rgb(59, 62, 92) 0%, rgb(194, 195, 195) 100%);
+    background: var(--gradient-bg);
+    color: var(--white);
 }
 
-/* ===== CONTAINER ===== */
+/* ======================
+   GLOBAL CONTAINER
+   ====================== */
 .container {
-    width: 90%;
-    max-width: var(--max-w);
-    margin: 0 auto;
-}
-
-/* ============ HEADER ============ */
-/* header fica sobre o hero (absolute) conforme pedido */
-.header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    z-index: 999;
-    background: transparent;
-    /* transparente sobre o hero */
-    padding: 0 40px;
-    /* espaçamento lateral */
-}
-
-/* header interno */
-.header-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-/* logo (se for texto) */
-.logo {
-    font-size: 48px;
-    font-weight: 400;
-    color: var(--white);
-    letter-spacing: 2px;
-}
-
-/* nav */
-.nav-menu {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-.nav-menu a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ============ HERO ============ */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    /* fundo: caminho relativo (ajuste de acordo com a localização do CSS) */
-    background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)), url('../assets/img/hero.jpg') center/cover no-repeat;
-    padding-top: 120px;
-    /* mantém o conteúdo abaixo do header visualmente */
-}
-
-/* hero conteúdo */
-.hero .hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.hero h2 {
-    font-size: 7vw;
-    /* responsivo */
-    font-weight: 500;
-    margin-bottom: 0.6rem;
-    letter-spacing: 1px;
-}
-
-.hero a {
-    color: var(--white);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-#cta-btn {
-    display: none;
-}
-
-/* botão Saiba Mais removido por pedido */
-
-/* ============ SECTIONS GLOBAL ============ */
-section {
-    padding: 5rem 0;
-}
-
-/* ============ SOBRE ============ */
-.sobre {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* padding lateral será aplicado só no responsivo conforme pedido */
+/* ======================
+   HEADER — DESKTOP
+   ====================== */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 0 40px;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 48px;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ======================
+   HERO
+   ====================== */
+.hero {
+    min-height: 100vh;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
+        url('../assets/img/hero.jpg') center/cover no-repeat;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hero h2 {
+    font-size: 7vw;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* botão Saiba Mais removido */
+#cta-btn {
+    display: none;
+}
+
+/* ======================
+   SOBRE — DESKTOP (≥901px)
+   ====================== */
+.sobre {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 .sobre-blocos {
     display: flex;
@@ -160,17 +135,16 @@ section {
     margin-top: 3rem;
 }
 
-/* cada bloco é grid 2 colunas no desktop */
 .sobre-bloco {
     display: grid;
-    grid-template-columns: repeat(1fr, 1fr);
+    grid-template-columns: 1fr 1fr;
+    /* DESKTOP */
     gap: 2rem;
     align-items: center;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     border-bottom: 3px solid var(--light-gray);
 }
 
-/* remover border no último */
 .sobre-bloco:last-child {
     border-bottom: none;
 }
@@ -185,35 +159,37 @@ section {
 .sobre-bloco .texto h4 {
     font-size: 2.25rem;
     margin-bottom: .4rem;
-    color: var(--white);
-    /* caso sobre seja sobre imagem escura */
 }
 
 .sobre-bloco .texto span {
     font-weight: 500;
-    color: var(--white);
 }
 
 .sobre-bloco .texto p {
-    color: var(--white);
-    font-size: 0.95rem;
-    margin-top: .6rem;
+    font-size: .95rem;
 }
 
-/* botão download */
+/* imagem do sobre */
+.sobre-bloco img {
+    width: 100%;
+    max-width: 480px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.15);
+}
+
+/* botão de download */
 .btn-download {
     display: inline-block;
-    margin: 16px 0 0 0;
+    width: auto;
     padding: 12px 24px;
+    margin-top: 1rem;
     background: var(--prim);
     color: var(--white);
     border-radius: 6px;
+    border: 2px solid var(--prim);
     text-decoration: none;
     font-weight: 600;
-    border: 2px solid var(--prim);
-    width: auto;
-    /* garante botão natural */
-    display: inline-block;
 }
 
 .btn-download:hover {
@@ -221,39 +197,11 @@ section {
     color: var(--prim);
 }
 
-/* imagens do sobre */
-.sobre-bloco img {
-    width: 100%;
-    max-width: 480px;
-    /* padroniza tamanho visual */
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.15);
-}
-
-/* alternância no desktop: blocos pares trocam colunas */
-.sobre-bloco:nth-child(even) {
-    grid-template-columns: 1fr 1fr;
-    /* a ordem do HTML controla se a imagem vem primeiro ou depois.
-     Se quiser sempre forçar a imagem à esquerda em pares, usar order via CSS (não necessário se HTML já alterna). */
-}
-
-/* reveal (animação) */
-.reveal {
-    opacity: 0;
-    transform: translateY(2.5rem);
-    transition: all .7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== FOOTER ===== */
+/* ======================
+   FOOTER — DESKTOP
+   ====================== */
 footer#contato {
-    background: #1A1A1A;
+    background: #111;
     color: var(--white);
     padding: 3rem 0;
 }
@@ -262,93 +210,82 @@ footer#contato {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    align-items: start;
-}
-
-.footer-col img.logo-img {
-    height: 5rem;
-    width: auto;
-    object-fit: contain;
-}
-
-.footer-col h3 {
-    margin-bottom: .6rem;
-    color: var(--prim);
 }
 
 .icon-social {
     width: 2rem;
     height: 2rem;
     filter: brightness(0) invert(1);
-    margin: .25rem;
 }
 
-/* ============ UTILITIES ============ */
-.container--narrow {
-    max-width: 60rem;
-    margin: 0 auto;
+/* ======================
+   REVEAL ANIMATION
+   ====================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition: all 0.7s ease;
 }
 
-/* ====== RESPONSIVE: TABLET & MOBILE ====== */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-/* Tablet breakpoint: <= 900px
-   - aplica padding lateral ao .sobre
-   - transforma sobre-bloco em 1 coluna (texto, botão, imagem)
-*/
-@media (max-width: 900px) {
+/* ============================================================
+   RESPONSIVE — TABLET (600px → 900px)
+   ============================================================ */
+@media (max-width: 900px) and (min-width: 601px) {
+
+    .nav-menu {
+        display: none;
+    }
 
     .sobre {
-        padding: 0 20px;
+        width: 100%;
+        padding: 0 24px;
+        max-width: none;
     }
 
     .sobre-bloco {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 18px;
+        gap: 28px;
+        padding-bottom: 2rem;
     }
 
     .sobre-bloco .texto {
         align-items: center;
     }
 
-    .sobre-bloco .texto h4,
-    .sobre-bloco .texto span,
-    .sobre-bloco .texto p {
-        text-align: center;
-    }
-
     .sobre-bloco img {
         margin: 0 auto;
-        max-width: 450px;
     }
 
-    /* header: mantemos layout, mas reduzimos paddings */
-    .header {
-        padding: 0 16px;
-        height: 100px;
-    }
-
-    .header-container {
-        padding: 0 8px;
-    }
-
-    /* nav escondido no mobile (podemos adicionar hamburger depois) */
-    .nav-menu {
-        display: none;
+    .btn-download {
+        margin: 0 auto;
     }
 }
 
-/* Mobile breakpoint: <= 600px
-   - readapta fontes e espaçamentos
-*/
+/* ============================================================
+   RESPONSIVE — MOBILE (≤600px)
+   ============================================================ */
 @media (max-width: 600px) {
 
+    .hero h2 {
+        font-size: 12vw;
+        padding: 0 16px;
+    }
+
     .sobre {
+        width: 100%;
         padding: 0 16px;
     }
 
     .sobre-bloco {
-        gap: 28px;
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
         padding-bottom: 2.4rem;
     }
 
@@ -356,38 +293,18 @@ footer#contato {
         font-size: 1.7rem;
     }
 
-    .hero h2 {
-        font-size: 12vw;
-        padding-top: 5.5rem;
+    .sobre-bloco img {
+        max-width: 380px;
+        margin: 0 auto;
     }
 
-    /* footer centralizado */
+    .btn-download {
+        margin: 0 auto;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 1.2rem;
-    }
-
-    .footer-col img.logo-img {
-        margin: 0 auto;
-    }
-
-    /* botão full-width opcional */
-    .btn-download {
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    /* se quiser full width, trocar para width:100% */
-}
-
-/* small tweaks for very large screens */
-@media (min-width: 1600px) {
-    .logo {
-        font-size: 56px;
-    }
-
-    .sobre-bloco .texto h4 {
-        font-size: 2.6rem;
+        gap: 1.5rem;
     }
 }
